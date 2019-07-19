@@ -1,5 +1,6 @@
 import requests
 import json
+import random
 
 class Multilinguist:
   """This class represents a world traveller who knows 
@@ -117,16 +118,26 @@ class MathGenius(Multilinguist):
 
   def report_total(self, numbers_list):
     return f"{speaker.say_in_local_language('The total is')} {sum(numbers_list)}"
-    pass
-  pass
 
 
 
 class QuoteCollector(Multilinguist):
   list_of_quotes = []
 
-  def add_new_quote(self, new_quote):
+  def report_quote(self, numbers_list):
+    return f"{speaker.say_in_local_language('The total is')} {sum(numbers_list)}"
+
+  def add_new_quote(self, new_quote, topic):
+    self.list_of_quotes.append({'quote': new_quote, 'topic': topic})
     return new_quote
+
+  def get_random_quote(self):
+    random_quote = random.choice(self.list_of_quotes)
+
+
+
+
+    return(f"\"{random_quote['quote']}\" - a quote about {random_quote['topic']}.")
 
 
 
@@ -142,3 +153,19 @@ mathematician = MathGenius()
 
 
 quotist = QuoteCollector()
+
+quotist.add_new_quote('It is what it is.', 'nonsense')
+quotist.add_new_quote('You can’t trade shoes with a barefoot monkey.', 'shoes')
+quotist.add_new_quote('You can’t fill a hat with maybes.', 'Carly Rae Jepson')
+quotist.add_new_quote('A pit in a peach is worth six in a bucket.', 'peaches')
+quotist.add_new_quote('There’s never enough time to chew all the ice.', 'ice')
+quotist.add_new_quote('A paperclip won’t make the dog sit up.', 'paperclips')
+quotist.add_new_quote('He folded like a wet watermelon.', 'sports')
+quotist.add_new_quote('It feels like we’re walking towards Cleveland with this one.', 'Cleveland')
+quotist.add_new_quote('Every pig gets twisted some weeks.', 'pigs')
+quotist.add_new_quote('You can’t bend steel with tears.', 'tears')
+quotist.add_new_quote('It’s worth all you’ve got plus five pizzas.', 'pizza')
+quotist.add_new_quote('As far as I’m concerned, she hangs the moon and neatly folds the sun.', 'the moon')
+
+# print(quotist.list_of_quotes)
+print(quotist.get_random_quote())
