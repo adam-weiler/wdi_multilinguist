@@ -131,6 +131,16 @@ class QuoteCollector(Multilinguist):
     self.list_of_quotes.append({'quote': new_quote, 'topic': topic})
     return new_quote
 
+  def share_quote_by_topic(self, desired_topic):
+    # print(desired_topic)
+
+    for quote in self.list_of_quotes:
+      # print(quote['topic'] == desired_topic)
+
+      if (quote['topic'] == desired_topic):
+        return(f"\"{quote['quote']}\" - a quote about {quote['topic']}.")
+    return (f'I don\'t have a quote about {desired_topic}.')
+
   def get_random_quote(self):
     random_quote = random.choice(self.list_of_quotes)
 
@@ -167,5 +177,8 @@ quotist.add_new_quote('You can’t bend steel with tears.', 'tears')
 quotist.add_new_quote('It’s worth all you’ve got plus five pizzas.', 'pizza')
 quotist.add_new_quote('As far as I’m concerned, she hangs the moon and neatly folds the sun.', 'the moon')
 
+print(quotist.share_quote_by_topic('pizza'))
+print(quotist.share_quote_by_topic('werewolves'))
+
 # print(quotist.list_of_quotes)
-print(quotist.get_random_quote())
+# print(quotist.get_random_quote())
