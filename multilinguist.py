@@ -82,7 +82,42 @@ class Multilinguist:
 
 
 speaker = Multilinguist()
-print(speaker.language_in('Canada')) #en
-print(speaker.language_in('Japan')) #ja
-print(speaker.language_in('Ireland')) #ga #Gaelic
-print(speaker.language_in('France')) #fr
+
+# print(speaker.language_in('Canada')) #en
+# print(speaker.language_in('Japan')) #ja
+# print(speaker.language_in('Ireland')) #ga #Gaelic
+# print(speaker.language_in('France')) #fr
+# print()
+
+# print(speaker.travel_to('Canada')) #en
+# print(speaker.travel_to('Japan')) #ja
+# print(speaker.travel_to('Ireland')) #ga #Gaelic
+# print(speaker.travel_to('France')) #fr
+# print()
+
+# print(speaker.say_in_local_language('This is my message.')) #en
+# print(speaker.say_in_local_language('This is my message.')) #ja
+# print(speaker.say_in_local_language('This is my message.')) #ga #Gaelic
+# print(speaker.say_in_local_language('This is my message.')) #fr
+
+
+
+
+
+class MathGenius(Multilinguist):
+
+  def report_total(self, numbers_list):
+    return f'The total is {sum(numbers_list)}'
+    pass
+  pass
+
+
+
+
+me = MathGenius()
+me.travel_to("Canada")
+print(me.report_total([23,45,676,34,5778,4,23,5465])) # The total is 12048
+me.travel_to("India")
+print(me.report_total([6,3,6,68,455,4,467,57,4,534])) # है को कुल 1604
+me.travel_to("Italy")
+print(me.report_total([324,245,6,343647,686545])) # È Il totale 1030767
