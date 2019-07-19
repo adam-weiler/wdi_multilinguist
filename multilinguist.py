@@ -78,3 +78,11 @@ class Multilinguist:
     json_response = json.loads(response.text)
     return json_response['translationText']
 
+
+
+
+speaker = Multilinguist()
+print(speaker.language_in('Canada')) #en
+print(speaker.language_in('Japan')) #ja
+print(speaker.language_in('Ireland')) #ga #Gaelic
+print(speaker.language_in('France')) #fr
