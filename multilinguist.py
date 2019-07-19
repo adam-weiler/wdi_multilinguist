@@ -76,7 +76,16 @@ class Multilinguist:
     params = {'text': msg, 'to': self.current_lang, 'from': 'en'}
     response = requests.get(self.translatr_base_url, params=params)
     json_response = json.loads(response.text)
-    return json_response['translationText']
+
+
+
+
+
+    try: #Tries to run this.
+      return json_response['translationText']
+    except: #If it fails then it returns something else. This prevents the app from crashing.
+      return "Nope!"
+    pass
 
 
 
@@ -107,17 +116,29 @@ speaker = Multilinguist()
 class MathGenius(Multilinguist):
 
   def report_total(self, numbers_list):
-    return f'The total is {sum(numbers_list)}'
+    return f"{speaker.say_in_local_language('The total is')} {sum(numbers_list)}"
     pass
   pass
 
 
 
+class QuoteCollector(Multilinguist):
+  list_of_quotes = []
 
-me = MathGenius()
-me.travel_to("Canada")
-print(me.report_total([23,45,676,34,5778,4,23,5465])) # The total is 12048
-me.travel_to("India")
-print(me.report_total([6,3,6,68,455,4,467,57,4,534])) # है को कुल 1604
-me.travel_to("Italy")
-print(me.report_total([324,245,6,343647,686545])) # È Il totale 1030767
+  def add_new_quote(self, new_quote):
+    return new_quote
+
+
+
+
+mathematician = MathGenius()
+# mathematician.travel_to("Canada")
+# print(mathematician.report_total([23,45,676,34,5778,4,23,5465])) # The total is 12048
+# mathematician.travel_to("India")
+# print(mathematician.report_total([6,3,6,68,455,4,467,57,4,534])) # है को कुल 1604
+# mathematician.travel_to("Italy")
+# print(mathematician.report_total([324,245,6,343647,686545])) # È Il totale 1030767
+
+
+
+quotist = QuoteCollector()
