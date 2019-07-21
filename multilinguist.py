@@ -81,4 +81,3 @@ class Multilinguist:
       return json_response['translationText']
     except: #If it fails then it returns something else. This prevents the app from crashing.
       return "Nope!"
-    pass

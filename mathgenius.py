@@ -13,7 +13,7 @@ class MathGenius(Multilinguist):
   def report_total(self, numbers_list):
     """(Roughly) translates msg into current_lang using the Transltr API
     as well as finding the sum of the number_list."""
-    return f"{speaker.say_in_local_language('The total is')} {sum(numbers_list)}"
+    return f"{self.say_in_local_language('The total is')} {sum(numbers_list)}"
 
   def factorial(self, number):
     """Calculates the factorial of the number given."""
